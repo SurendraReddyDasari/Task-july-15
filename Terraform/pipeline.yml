@@ -24,7 +24,7 @@ jobs:
       - script: 'terraform  validate'
         displayName: 'Validate'
 
-      - script: 'terraform  plan -var="ARM_CLIENT_ID=$(ARM_CLIENT_ID)" -var="ARM_CLIENT_SECRET=$(ARM_CLIENT_SECRET)" -var="ARM_TENANT_ID=$(ARM_TENANT_ID)" -var="ARM_SUBSCRIPTION_ID=$(ARM_SUBSCRIPTION_ID)"'
+      - script: 'terraform plan -var="ARM_CLIENT_ID=3245bdad-70ec-40a0-bf78-67f6600c9780" -var="ARM_CLIENT_SECRET=eW68Q~VC7w4Cdem.IvcsAPlcAcd3ooOHNiIWRdfK" -var="ARM_TENANT_ID=26103e2d-5173-4eb9-b78f-c5606b46d323" -var="ARM_SUBSCRIPTION_ID=ece13a58-9c87-477d-846f-e1d50515d213"'
         displayName: 'Plan'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
@@ -44,7 +44,7 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
-      - script: 'terraform apply -auto-approve -var="ARM_CLIENT_ID=$(ARM_CLIENT_ID)" -var="ARM_CLIENT_SECRET=$(ARM_CLIENT_SECRET)" -var="ARM_TENANT_ID=$(ARM_TENANT_ID)" -var="ARM_SUBSCRIPTION_ID=$(ARM_SUBSCRIPTION_ID)"'
+      - script: 'terraform apply -auto-approve -var="ARM_CLIENT_ID=3245bdad-70ec-40a0-bf78-67f6600c9780" -var="ARM_CLIENT_SECRET=eW68Q~VC7w4Cdem.IvcsAPlcAcd3ooOHNiIWRdfK" -var="ARM_TENANT_ID=26103e2d-5173-4eb9-b78f-c5606b46d323" -var="ARM_SUBSCRIPTION_ID=ece13a58-9c87-477d-846f-e1d50515d213"'
         displayName: 'Apply'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
