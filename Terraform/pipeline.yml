@@ -21,7 +21,7 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
-      - script: 'terraform -chdir=main/ validate'
+      - script: 'terraform  validate'
         displayName: 'Validate'
 
       - script: 'terraform  plan -var="ARM_CLIENT_ID=$(ARM_CLIENT_ID)" -var="ARM_CLIENT_SECRET=$(ARM_CLIENT_SECRET)" -var="ARM_TENANT_ID=$(ARM_TENANT_ID)" -var="ARM_SUBSCRIPTION_ID=$(ARM_SUBSCRIPTION_ID)"'
