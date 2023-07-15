@@ -21,7 +21,7 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
-      - script: 'terraform -chdir=main/ validate'
+      - script: 'terraform -chdir=Terraform/main/ validate'
         displayName: 'Validate'
 
       - script: 'terraform -chdir=Terraform/main/ plan -input=false'
