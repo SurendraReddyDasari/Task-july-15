@@ -6,7 +6,7 @@ resource "azurerm_linux_web_app" "example" {
   app_settings              = var.app_settings
   client_affinity_enabled   = var.client_affinity_enabled
   https_only                = var.https_only
-  always_on                 = var.always_on
+  
  
   site_config {
     always_on               = var.always_on
