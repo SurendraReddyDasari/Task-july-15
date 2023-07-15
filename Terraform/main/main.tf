@@ -40,7 +40,6 @@ module "web_app" {
   webapp_name                   = var.webapp_name
   rg_name                       = var.rg_name
   location                      = var.location
-  app_service_plan_id           = module.app_service_plan.app_service_id
   storage_account_access_key    = module.storage_account.primary_access_key
   linux_fx_version              = "~7|dotnet"
 }
