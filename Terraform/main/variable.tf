@@ -21,24 +21,24 @@ variable "tags" {
 
 variable "kv_name" {
   description = ""
-  default = "techslate-ade-kv001"
+  default = "techslate-ade-kv0012"
 }
 
 variable "st_name" {
   description = "(Required) Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
-  default = "techslatestorage001"
+  default = "techslatestorage0012"
 }
 
 variable "asp_name" {
   description = ""
-  default = "techslate-asp-001"
+  default = "techslate-asp-0012"
 }
 
 variable "webapp_name" {
   description = ""
-  default = "techslate-webapp-001"
+  default = "techslate-webapp-0012"
 }
 
 variable "storage_account_access_key" {
-    default = "techslate-function-001"
+    default = "techslate-web-0012"
 }
