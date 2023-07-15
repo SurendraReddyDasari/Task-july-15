@@ -1,4 +1,4 @@
-output "web_app_url" {
-  description = "URL of the deployed Web App."
-  value       = azurerm_linux_web_app.example.default_host_name
+output "app_service_id" {
+  description = "Name of the App Service Plan component."
+  value = azurerm_app_service_plan.asp.id
 }
