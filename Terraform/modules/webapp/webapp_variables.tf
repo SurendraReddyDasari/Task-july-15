@@ -8,8 +8,8 @@ variable "location" {
   type        = string
 }
 
-variable "app_service_plan_id" {
-  description = "(Required) Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about Function App naming rule"
+variable "service_plan_id" {
+  description = "(Required) Specifies the name of the Web App. Changing this forces a new resource to be created."
   type = string
   default = ""
 }
