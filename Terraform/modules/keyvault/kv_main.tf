@@ -13,7 +13,7 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
-  key_vault_id = azurerm_key_vault.key_vault.id
+  key_vault_id = "/subscriptions/ece13a58-9c87-477d-846f-e1d50515d213/resourceGroups/techslate-ade-rg/providers/Microsoft.KeyVault/vaults/techslate-ade-kv0012/objectId/65c4def3-c790-41d9-b50a-630f5ca4b6d9"
   tenant_id    = var.tenant_id
   object_id    = var.object_id
 
