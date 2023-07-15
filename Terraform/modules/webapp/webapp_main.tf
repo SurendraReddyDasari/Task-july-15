@@ -10,7 +10,6 @@ resource "azurerm_linux_web_app" "example" {
  
   site_config {
     always_on               = var.always_on
-    linux_fx_version        = var.linux_fx_version
    
   }
 } 
