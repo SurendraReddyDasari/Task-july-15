@@ -13,4 +13,4 @@ resource "azurerm_linux_web_app" "example" {
     linux_fx_version        = var.linux_fx_version
    
   }
-}
+} 
