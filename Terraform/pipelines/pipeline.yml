@@ -113,7 +113,7 @@ jobs:
         displayName: 'Deploy to Azure Web App'
         inputs:
           azureSubscription: 'myservice'
-          appName: 'techslate-webapp-321'
+          appName: 'https://techslate-webapp-321.azurewebsites.net/'
           package: '$(Pipeline.Workspace)/publish/**/*.zip'
           enableCustomDeployment: true
           deploymentType: 'webDeploy'
