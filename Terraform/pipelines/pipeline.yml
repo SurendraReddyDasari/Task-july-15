@@ -10,10 +10,10 @@ jobs:
     displayName: Terraform Plan
     
     steps:
-      - script: 'terraform version'
+      - script: 'terraform -chdir=main version'
         displayName: 'Terraform Version'
 
-      - script: 'terraform -chdir=main/ init -input=false'
+      - script: 'terraform -chdir=main init -input=false'
         displayName: 'Init'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
