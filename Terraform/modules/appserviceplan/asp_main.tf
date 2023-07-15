@@ -4,7 +4,9 @@ resource "azurerm_service_plan" "asp" {
   resource_group_name = var.rg_name
   kind                = "Linux"
   reserved            = true
-   sku {
+  os_type             = "Linux"
+  
+   sku_name {
     tier = "Standard"
     size = "S1"
   }
