@@ -5,7 +5,7 @@ variable "location" {
 
 variable "kv_name" {
     description =  "Name of the Keyvault"
-    default = "techslate-ade-kv"  
+    default = ""  
 }
 
 
