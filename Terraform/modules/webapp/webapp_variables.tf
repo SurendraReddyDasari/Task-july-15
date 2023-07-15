@@ -15,7 +15,7 @@ locals {
 variable "service_plan_id" {
   description = "(Required) Specifies the name of the Web App. Changing this forces a new resource to be created."
   type        = string
-  default     = local.service_plan_id
+  default     = ""
 }
 
 
