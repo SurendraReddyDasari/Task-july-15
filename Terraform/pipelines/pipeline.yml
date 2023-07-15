@@ -32,6 +32,8 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
+
+
   - job: TerraformApply
     displayName: Terraform Apply
   
@@ -53,22 +55,45 @@ jobs:
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
 
-  - job: TerraformDestroy
-    displayName: Terraform Destroy
-  
+  - job: CI
+    displayName: CI
+    
     steps:
-      - script: 'terraform -chdir=Terraform/main/ init -input=false'
-        displayName: 'Init'
-        env:
-          ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
-          ARM_TENANT_ID: $(ARM_TENANT_ID)
-          ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-          ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      - task: UseDotNet@2
+        displayName: 'Install .NET SDK'
+        inputs:
+          version: '7.0.x'
 
-      - script: 'terraform -chdir=Terraform/main/ destroy -auto-approve -input=false'
-        displayName: 'Destroy'
-        env:
-          ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
-          ARM_TENANT_ID: $(ARM_TENANT_ID)
-          ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-          ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      - task: DotNetCoreCLI@2
+        displayName: 'Restore NuGet packages'
+        inputs:
+          command: 'restore'
+          projects: '**/*.csproj'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Build the application'
+        inputs:
+          command: 'build'
+          projects: '**/*.csproj'
+          arguments: '--configuration $(buildConfiguration)'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Run unit tests'
+        inputs:
+          command: 'test'
+          projects: '**/*Tests.csproj'
+          arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage"'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Publish the application'
+        inputs:
+          command: 'publish'
+          projects: '**/*.csproj'
+          publishWebProjects: true
+          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish artifacts'
+        inputs:
+          artifactName: 'publish'
+          targetPath: '$(Build.ArtifactStagingDirectory)/publish'
