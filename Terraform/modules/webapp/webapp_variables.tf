@@ -3,6 +3,12 @@ variable "rg_name" {
   type        = string
 }
 
+
+variable "asp_name" {
+  description = "Name of the App Service Plan."
+  type        = string
+}
+
 variable "location" {
   description = "Azure region where the resources will be deployed."
   type        = string
