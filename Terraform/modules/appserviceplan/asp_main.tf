@@ -5,6 +5,10 @@ resource "azurerm_service_plan" "asp" {
   kind                = "Linux"
   reserved            = true
   os_type             = "Linux"
-
+  
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
 
 }
