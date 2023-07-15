@@ -13,7 +13,9 @@ jobs:
       - script: 'terraform version'
         displayName: 'Terraform Version'
 
-      - script: 'terraform -chdir=../main/ init -input=false'
+      - script: |
+          cd main/
+          terraform init -input=false
         displayName: 'Init'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
@@ -21,10 +23,14 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
-      - script: 'terraform -chdir=../main/ validate'
+      - script: |
+          cd main/
+          terraform validate
         displayName: 'Validate'
 
-      - script: 'terraform -chdir=../main/ plan -input=false'
+      - script: |
+          cd main/
+          terraform plan -input=false
         displayName: 'Plan'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
@@ -36,7 +42,9 @@ jobs:
     displayName: Terraform Apply
   
     steps:
-      - script: 'terraform -chdir=../main/ init -input=false'
+      - script: |
+          cd main/
+          terraform init -input=false
         displayName: 'Init'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
@@ -44,7 +52,9 @@ jobs:
           ARM_CLIENT_ID: $(ARM_CLIENT_ID)
           ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
 
-      - script: 'terraform -chdir=../main/ apply -auto-approve -input=false'
+      - script: |
+          cd main/
+          terraform apply -auto-approve -input=false
         displayName: 'Apply'
         env:
           ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
