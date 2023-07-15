@@ -11,7 +11,7 @@ variable "location" {
 variable "service_plan_id" {
   description = "(Required) Specifies the name of the Web App. Changing this forces a new resource to be created."
   type = string
-  default = "/subscriptions/ece13a58-9c87-477d-846f-e1d50515d213/resourceGroups/var.rg_name/providers/Microsoft.Web/serverfarms/var.asp_name"
+  default = "/subscriptions/ece13a58-9c87-477d-846f-e1d50515d213/resourceGroups/${var.rg_name}/providers/Microsoft.Web/serverfarms/${var.asp_name}"
 }
 
 variable "webapp_name" {
