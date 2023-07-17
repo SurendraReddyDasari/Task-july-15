@@ -1,6 +1,6 @@
 variable "rg_name" {
   description = "The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created."  
-  default = "techslate-ade-rg321"
+  default = "techslate-ade-rg932"
 }
 
 variable "location" {
@@ -21,24 +21,24 @@ variable "tags" {
 
 variable "kv_name" {
   description = ""
-  default = "techslate-ade-kv321"
+  default = "techslate-ade-kv932"
 }
 
 variable "st_name" {
   description = "(Required) Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
-  default = "techslatestorage321"
+  default = "techslatestorage932"
 }
 
 variable "asp_name" {
   description = ""
-  default = "techslate-asp-321"
+  default = "techslate-asp-932"
 }
 
 variable "webapp_name" {
   description = ""
-  default = "techslate-webapp-321"
+  default = "techslate-webapp-932"
 }
 
 variable "storage_account_access_key" {
-    default = "techslate-web-321"
+    default = "techslate-web-932"
 }
