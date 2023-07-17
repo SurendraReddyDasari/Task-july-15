@@ -114,5 +114,6 @@ jobs:
           azureSubscription: '$(Parameters.ConnectedServiceName)'
           appType: '$(Parameters.WebAppKind)'
           WebAppName: '$(Parameters.WebAppName)'
+          package: $(System.DefaultWorkingDirectory)/**/*.zip
           RuntimeStack: 'DOTNETCORE|7.0'
           
