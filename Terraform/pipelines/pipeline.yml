@@ -8,7 +8,7 @@ trigger:
 jobs:
   - job: TerraformPlan
     displayName: Terraform Plan
-    dependsOn: CI
+    
     
     steps:
       - script: 'terraform version'
@@ -59,6 +59,8 @@ jobs:
 
   - job: CI
     displayName: CI
+    dependsOn: TerraformApply
+
     
     steps:
       - task: UseDotNet@2
