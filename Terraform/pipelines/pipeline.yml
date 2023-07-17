@@ -98,23 +98,3 @@ jobs:
           artifactName: 'publish'
           targetPath: '$(Build.ArtifactStagingDirectory)/publish'
 
-
-  - job: CD
-    displayName: Deploy to Azure Web App - CD
-    dependsOn: CI
-    steps:
-      - task: DownloadPipelineArtifact@2
-        displayName: 'Download artifacts'
-        inputs:
-          artifactName: 'publish'
-          downloadPath: '$(Pipeline.Workspace)/publish'
-
-      - task: AzureRmWebAppDeployment@4
-        displayName: 'Deploy to Azure Web App'
-        inputs:
-          azureSubscription: 'myservice'
-          appName: 'https://techslate-webapp-321.azurewebsites.net/'
-          package: '$(Pipeline.Workspace)/publish/**/*.zip'
-          enableCustomDeployment: true
-          deploymentType: 'webDeploy'
-          removeAdditionalFilesFlag: true
