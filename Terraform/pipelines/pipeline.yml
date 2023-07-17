@@ -8,6 +8,7 @@ trigger:
 jobs:
   - job: TerraformPlan
     displayName: Terraform Plan
+    dependsOn: CI
     
     steps:
       - script: 'terraform version'
@@ -36,6 +37,7 @@ jobs:
 
   - job: TerraformApply
     displayName: Terraform Apply
+    dependsOn: TerraformPlan
   
     steps:
       - script: 'terraform -chdir=Terraform/main/ init -input=false'
