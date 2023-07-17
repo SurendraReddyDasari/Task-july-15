@@ -115,4 +115,4 @@ jobs:
           appType: '$(Parameters.WebAppKind)'
           WebAppName: '$(Parameters.WebAppName)'
           RuntimeStack: 'DOTNETCORE|7.0'
-          StartupCommand: '$(Parameters.StartupCommand)'
+          
